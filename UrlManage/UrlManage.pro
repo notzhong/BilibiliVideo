@@ -2,7 +2,7 @@ QT += core network
 
 CONFIG += c++17
 TEMPLATE = lib
-DEFINES += DOWNLOADMANAGE_LIB
+DEFINES += URLMANAGE_LIB
 
 
 INCLUDEPATH += $$PWD/../include
@@ -11,17 +11,17 @@ DEPENDPATH += $$PWD/../include
 HEADERS += \
     ../include/ConfigValue.h \
     ../include/custom_define.h \
-    ../include/downinfodata.h \
-    ../include/downloadmanage.h \
-    ../include/downloadmanage_global.h
+    ../include/urlmanage.h \
+    ../include/parstforurl.h \
+    ../include/urlmanage_global.h
 
 SOURCES += \
-    downinfodata.cpp \
-    downloadmanage.cpp
+    parstforurl.cpp \
+    urlmanage.cpp
 
 CONFIG(debug,debug|release){
 DESTDIR = $$PWD/../lib
-TARGET = DownloadManage_d
+TARGET = UrlManage_d
 }else{
-TARGET = DownloadManage
+TARGET = UrlManage
 }

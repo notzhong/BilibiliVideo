@@ -68,6 +68,7 @@
     <ExternalIncludePath>D:\QtCode\BilibiliVideo\include;$(ExternalIncludePath)</ExternalIncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <PublicIncludeDirectories>D:\QtCode\BilibiliVideo\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutDir>..\bin\</OutDir>
