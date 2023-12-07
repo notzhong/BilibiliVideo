@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
     QString url = LoadSettings::GetInstances()->GetUrl();
     QString cookie = LoadSettings::GetInstances()->GetCookie();
     QSharedPointer<StreamUrl>in_test = QSharedPointer<StreamUrl>(new StreamUrl(url,cookie));
-    
+    QSharedPointer<DownloadMain>test2;
     if (!url.isEmpty())
     {
         test.InitManage(in_test.data());
         test.ProcessUrl();
-        QSharedPointer<DownloadMain>test2 = QSharedPointer<DownloadMain>(new DownloadMain(in_test.data()));
         QObject::connect(&test, &UrlManage::ProcessEd, [&]() {
+            test2 = QSharedPointer<DownloadMain>(new DownloadMain(in_test.data()));
             test2.data()->ProcessEx();
             });
         

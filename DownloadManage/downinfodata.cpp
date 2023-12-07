@@ -8,7 +8,8 @@
 DownInfoData::DownInfoData(QNetworkAccessManager* manager, QObject *parent)
     : QObject(parent),
     m_manager(manager),
-    m_ID(StreamClass::VEDIO)
+    m_ID(StreamClass::VEDIO),
+    m_DownName(QString())
 {
     if (m_manager)
         connect(m_manager, &QNetworkAccessManager::finished, this, &DownInfoData::GetReply);
@@ -20,6 +21,7 @@ DownInfoData::~DownInfoData()
 int DownInfoData::ProcessExe(QNetworkRequest* pRequest, QString& Url, QString& name, StreamClass& ID)
 {
     m_ID = ID;
+    m_DownName = name;
     pRequest->setUrl(QUrl(Url));
     if (m_manager && pRequest)
     {
@@ -32,11 +34,13 @@ int DownInfoData::ProcessExe(QNetworkRequest* pRequest, QString& Url, QString& n
 
 int DownInfoData::GetVedioData(QNetworkReply* p)
 {
+    qDebug() << __FILE__ << Q_FUNC_INFO << __LINE__ << " p:" << p;
     return PROCESS_SUCCESS;
 }
 
 int DownInfoData::GetAudioData(QNetworkReply* p)
 {
+    qDebug() << __FILE__ << Q_FUNC_INFO << __LINE__ << " p:" << p;
     return PROCESS_SUCCESS;
 }
 
@@ -61,4 +65,6 @@ void DownInfoData::GetReply(QNetworkReply* p) {
     }
     else
         qDebug() << __FILE__ << Q_FUNC_INFO << __LINE__ << p->errorString();
+
+    emit GetReplyed();
 }

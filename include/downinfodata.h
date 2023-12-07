@@ -18,6 +18,10 @@ public:
     ~DownInfoData();
     int ProcessExe(QNetworkRequest* pRequest, QString& Url, QString& name, StreamClass& ID);
 
+signals:
+    void GetReplyed();
+
+
 public slots:
     void GetReply(QNetworkReply* p);
 
@@ -28,4 +32,5 @@ protected:
 private:
     QNetworkAccessManager* m_manager;
     StreamClass m_ID;
+    QString m_DownName;
 };

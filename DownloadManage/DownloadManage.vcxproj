@@ -113,10 +113,12 @@
     <ClCompile Include="downinfodata.cpp" />
     <ClCompile Include="downloadmain.cpp" />
     <ClCompile Include="downloadmanage.cpp" />
+    <ClCompile Include="downloadthread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ConfigValue.h" />
     <ClInclude Include="..\include\custom_define.h" />
+    <QtMoc Include="downloadthread.h" />
     <QtMoc Include="..\include\downinfodata.h" />
     <QtMoc Include="..\include\downloadmanage.h" />
     <ClInclude Include="..\include\downloadmain.h" />
