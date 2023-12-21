@@ -28,10 +28,6 @@ public:
     /// <returns>返回0，表示成功</returns>
     int GetUrlContent();
 
-    operator QNetworkAccessManager* ()const {
-        return m_Manager;
-    }
-
     QNetworkRequest* GetRequestPtr()const {
         return m_Request;
     }
@@ -51,7 +47,5 @@ protected:
 
 private:
     StreamUrl* m_DownData;
-    QNetworkAccessManager* m_Manager;
     QNetworkRequest* m_Request;
-    DownInfoData* m_pDownData;
 };

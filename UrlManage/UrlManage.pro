@@ -19,8 +19,9 @@ SOURCES += \
     parstforurl.cpp \
     urlmanage.cpp
 
-CONFIG(debug,debug|release){
 DESTDIR = $$PWD/../lib
+
+CONFIG(debug,debug|release){
 TARGET = UrlManage_d
 }else{
 TARGET = UrlManage

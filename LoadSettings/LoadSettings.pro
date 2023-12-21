@@ -17,8 +17,9 @@ HEADERS += \
 SOURCES += \
     loadsettings.cpp
 
-CONFIG(debug,debug|release){
 DESTDIR = $$PWD/../lib
+
+CONFIG(debug,debug|release){
 TARGET = LoadSettings_d
 }else{
 TARGET = LoadSettings

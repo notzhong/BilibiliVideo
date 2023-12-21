@@ -57,7 +57,7 @@
     <QtMoc Include="..\include\downloadmanage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="downloadthread.h">
+    <QtMoc Include="..\include\downloadthread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

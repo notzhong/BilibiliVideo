@@ -141,7 +141,7 @@ int ParstForUrl::GetAudio()
         //qDebug() << strAudio;
         QString* tempUrl = (QString*)(&m_pConnectUrl->DownloadValue->at(m_ObjectId).Audio_url);
         *tempUrl = strAudio.replace("\"", "").replace(QRegExp("baseUrl:{1}"), "");
-        PRINT_LOG(m_pConnectUrl->DownloadValue->at(m_ObjectId).Audio_url);
+        //PRINT_LOG(m_pConnectUrl->DownloadValue->at(m_ObjectId).Audio_url);
     }
     else
         return PROCESS_FAILED;

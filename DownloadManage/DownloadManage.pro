@@ -19,8 +19,9 @@ SOURCES += \
     downinfodata.cpp \
     downloadmanage.cpp
 
-CONFIG(debug,debug|release){
 DESTDIR = $$PWD/../lib
+
+CONFIG(debug,debug|release){
 TARGET = DownloadManage_d
 }else{
 TARGET = DownloadManage

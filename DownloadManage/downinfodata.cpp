@@ -4,6 +4,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <qnetworkrequest.h>
+#include <QEventLoop>
 
 DownInfoData::DownInfoData(QNetworkAccessManager* manager, QObject *parent)
     : QObject(parent),
@@ -11,12 +12,13 @@ DownInfoData::DownInfoData(QNetworkAccessManager* manager, QObject *parent)
     m_ID(StreamClass::VEDIO),
     m_DownName(QString())
 {
-    if (m_manager)
-        connect(m_manager, &QNetworkAccessManager::finished, this, &DownInfoData::GetReply);
 }
 
 DownInfoData::~DownInfoData()
-{}
+{
+    delete m_manager;
+    m_manager = nullptr;
+}
 
 int DownInfoData::ProcessExe(QNetworkRequest* pRequest, QString& Url, QString& name, StreamClass& ID)
 {
@@ -25,7 +27,14 @@ int DownInfoData::ProcessExe(QNetworkRequest* pRequest, QString& Url, QString& n
     pRequest->setUrl(QUrl(Url));
     if (m_manager && pRequest)
     {
-        m_manager->get(*pRequest);
+        auto reply = m_manager->get(*pRequest);
+        // 创建事件循环
+        QEventLoop eventLoop;
+        connect(m_manager, &QNetworkAccessManager::finished, [&]() {
+            GetReply(reply);
+            eventLoop.quit();
+            });
+        eventLoop.exec();
     }
     else
         return PROCESS_FAILED;
