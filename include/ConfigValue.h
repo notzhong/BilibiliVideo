@@ -46,20 +46,10 @@ typedef struct StreamUrl
 /// </summary>
 struct DownloadStreamValue
 {
-    QString name;           ///链接视频名称
     QString base_url;       ///链接
-    QString Video_url;      ///视频链接
-    QString Audio_url;      ///音频链接
 };
 
 
 #define PRINT_LOG(log) qDebug() << __FILE__ << Q_FUNC_INFO << __LINE__ << log;
-
-
-typedef struct TransferTheValueForThreads {
-    void* pDManager;
-    StreamClass Id;
-    DownloadStreamValue DSV;
-}*pTVFT, TVFT;
 
 #endif // !CONFIGVALUE_H

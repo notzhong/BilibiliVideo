@@ -16,6 +16,7 @@ DownloadMain::~DownloadMain()
 
 int DownloadMain::ProcessEx()
 {
-    m_main->BeginProcess();
+    if (m_main != nullptr)
+        m_main->ProcessDownload();
     return 0;
 }

@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
             test2 = QSharedPointer<DownloadMain>(new DownloadMain(in_test.data()));
             test2.data()->ProcessEx();
             });
-        
     }
     else qDebug() << "url is null!!!";
     

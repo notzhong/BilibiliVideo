@@ -29,17 +29,7 @@ public slots:
     void CallProcess();
 
 protected:
-    int ExeProcess();
     int ProcessInit();
-    int GetUrlName();
-    int GetVideo();
-    int GetAudio();
-
-    /// <summary>
-    /// 用于接收m_Manager发送请求完成后的Reply数据
-    /// </summary>
-    void ConnectReply(QNetworkReply* p);
-    QString HtmlStr;
 
 private:
 

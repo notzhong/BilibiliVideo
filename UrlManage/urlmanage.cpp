@@ -142,8 +142,7 @@ auto UrlManage::GetUrlCount() -> void
                 for (int i = 1; i <= m_BaseUrl->UrlCount; i++)
                 {
                     tmpUrl = m_BaseUrl->Base_url.replace(QRegExp("p=\\d+&"), QString("p=%1&").arg(i));
-                    qDebug() << tmpUrl;
-                    m_BaseUrl->DownloadValue->append({ QString(),tmpUrl,QString() ,QString() });
+                    m_BaseUrl->DownloadValue->append({tmpUrl});
                 }
             }
             if(m_BaseUrl->UrlCount)
