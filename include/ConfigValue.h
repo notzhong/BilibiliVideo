@@ -4,7 +4,6 @@
 #include <QList>
 #include "custom_define.h"
 
-typedef struct DownloadStreamValue DSV;
 
 /// <summary>
 /// 传递数据内容
@@ -23,11 +22,9 @@ typedef struct StreamUrl
     int UrlCount;               /// 链接数量
 
 
-    QList<DSV>* DownloadValue;            ///下载内容的链接名称
     StreamUrl(QString url, QString cookie = QString(), QString name = QString(), void* Stream = nullptr) :
         Base_url(url),
         Base_name(name),
-        DownloadValue(NULL),
         Base_Cookie(cookie),
         UrlCount(0),
         UserAgentHeader(QString()),
@@ -39,15 +36,6 @@ typedef struct StreamUrl
 
     ~StreamUrl() {};
 }*pStreamUrl;
-
-
-/// <summary>
-/// 调用下载bilibili对应的视频(video_url)、音频(audio_url)链接
-/// </summary>
-struct DownloadStreamValue
-{
-    QString base_url;       ///链接
-};
 
 
 #define PRINT_LOG(log) qDebug() << __FILE__ << Q_FUNC_INFO << __LINE__ << log;

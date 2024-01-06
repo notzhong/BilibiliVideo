@@ -110,14 +110,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="parstforurl.cpp" />
     <ClCompile Include="urlmanage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ConfigValue.h" />
     <QtMoc Include="..\include\urlmanage.h" />
     <ClInclude Include="..\include\custom_define.h" />
-    <QtMoc Include="..\include\parstforurl.h" />
     <ClInclude Include="..\include\urlmanage_global.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

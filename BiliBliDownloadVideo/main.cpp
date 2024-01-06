@@ -3,7 +3,7 @@
 #include "urlmanage.h"
 #include "loadsettings.h"
 #include "downloadmain.h"
-
+#include <iostream>
 
 int main(int argc, char *argv[])
 {

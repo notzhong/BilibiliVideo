@@ -5,12 +5,11 @@
 
 #include "urlmanage_global.h"
 #include "ConfigValue.h"
-#include "parstforurl.h"
 
 class QNetworkAccessManager;
 class QNetworkRequest;
 class QNetworkCookieJar;
-
+class QNetworkReply;
 
 
 class URLMANAGE_EXPORT UrlManage : public QObject
@@ -43,11 +42,9 @@ public slots:
 protected:
     auto GetUrlContent()->int;
     auto GetUrlCount()->void;
-    auto ParseUrl()->int;
 
 private:
     pStreamUrl m_BaseUrl;
-    QMap<int, ParstForUrl*>M_Connect;
     QSharedPointer<QNetworkAccessManager>m_Manager;
     QSharedPointer<QNetworkRequest>m_request;
     QSharedPointer<QNetworkCookieJar> m_cookie;
