@@ -26,9 +26,6 @@
     <ClCompile Include="urlmanage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="parstforurl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\urlmanage_global.h">
@@ -43,9 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\include\urlmanage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\include\parstforurl.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

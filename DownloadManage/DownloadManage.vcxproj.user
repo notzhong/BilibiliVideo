@@ -4,10 +4,15 @@
     <LocalDebuggerCommand />
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommand />
+    <LocalDebuggerWorkingDirectory>D:\QtCode\BilibiliVideo\bin\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtLastBackgroundBuild>2024-01-04T12:33:12.7323676Z</QtLastBackgroundBuild>
+    <QtLastBackgroundBuild>2024-01-06T16:00:36.4752127Z</QtLastBackgroundBuild>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtLastBackgroundBuild>2024-01-04T12:33:13.2650467Z</QtLastBackgroundBuild>
+    <QtLastBackgroundBuild>2024-01-06T16:00:36.5386904Z</QtLastBackgroundBuild>
   </PropertyGroup>
 </Project>

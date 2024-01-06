@@ -29,4 +29,6 @@ protected:
 
 private:
     StreamUrl* m_DownData;
+    void* m_pModule;
+    void* m_pFunc;
 };

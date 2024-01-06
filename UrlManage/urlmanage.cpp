@@ -103,11 +103,6 @@ void UrlManage::getReply(QNetworkReply*p) {
                 qDebug() << "Cookie:" << m_BaseUrl->Base_Cookie;
             }
         }
-        QFile file("./danei.html");
-        if (file.open(QIODevice::WriteOnly)) {
-            file.write(HtmlStr.toUtf8());
-            file.close();
-        }
     }
     else qDebug() << "getReply failed!!!";
     p->deleteLater();
@@ -115,8 +110,6 @@ void UrlManage::getReply(QNetworkReply*p) {
 
 void UrlManage::DestroyObject(int Id)
 {
-    qDebug() << "being release m_connect Id::"<<Id;
-    delete M_Connect.value(Id);
 }
 
 auto UrlManage::GetUrlContent()->int
@@ -124,7 +117,6 @@ auto UrlManage::GetUrlContent()->int
     if (m_Manager.data()->get(*m_request.data()) == nullptr) {
         return PROCESS_FAILED;
     }
-
     return PROCESS_SUCCESS;
 }
 
@@ -135,42 +127,23 @@ auto UrlManage::GetUrlCount() -> void
             QRegularExpression re("<span class=\"cur-page\">\\(\\d+/(\\d+)\\)</span>");
             QRegularExpressionMatch match = re.match(HtmlStr);
             m_BaseUrl->DownloadValue = new QList<DSV>();
-            qDebug() << match.captured(1);
             m_BaseUrl->UrlCount = match.captured(1).toInt();
             if (m_BaseUrl->UrlCount > 0) {
                 QString tmpUrl;
                 for (int i = 1; i <= m_BaseUrl->UrlCount; i++)
                 {
                     tmpUrl = m_BaseUrl->Base_url.replace(QRegExp("p=\\d+&"), QString("p=%1&").arg(i));
+                    std::cout << tmpUrl.toStdString().c_str() << std::endl;
                     m_BaseUrl->DownloadValue->append({tmpUrl});
                 }
+                break;
             }
-            if(m_BaseUrl->UrlCount)
-                if (PROCESS_FAILED == ParseUrl())
-                    qDebug() << "parse failed";
-            break;
+            else
+            {
+                _sleep(1000);
+                continue;
+            }
         }
     }
     ProcessEd();
-}
-
-auto UrlManage::ParseUrl() -> int
-{
-    for (auto i = 0; i < 1; i++)
-    {
-        try
-        {
-            M_Connect.insert(i, new ParstForUrl(m_BaseUrl, i));
-            QObject::connect(M_Connect.value(i), SIGNAL(DestroyObject(int)), this, SLOT(DestroyObject(int)));
-            M_Connect.value(i)->PassCallProcess();
-            qDebug() << "run :" << i;
-        }
-        catch (...)
-        {
-            qDebug() << __FILE__ << "::" << Q_FUNC_INFO << "::" << __LINE__ << ":: failed!!";
-            return PROCESS_FAILED;
-        }
-    }
-    qDebug() << __FILE__ << "::" << Q_FUNC_INFO << "::" << __LINE__ << "this runed";
-    return PROCESS_SUCCESS;
 }
