@@ -103,6 +103,7 @@ int DownloadManage::ProcessDownload()
 
     PyObject* pValue = PyObject_CallObject(reinterpret_cast<PyObject*>(m_pFunc), pArgs);
     QThread::msleep(3000);
+
     Py_XDECREF(pArgs);
 
     return PROCESS_SUCCESS;
